@@ -1,9 +1,11 @@
 import React from "react";
-import {GluestackUIProvider, Heading} from "@gluestack-ui/themed";
+import {GluestackUIProvider} from "@gluestack-ui/themed";
 import {config} from "@gluestack-ui/config";
 import {ToastProvider} from "@gluestack-ui/toast";
 import {OverlayProvider} from "@gluestack-ui/overlay";
 import {SafeAreaProvider} from "react-native-safe-area-context";
+import {NavigationContainer} from "@react-navigation/native";
+import Stacks from "./src/screens/Stacks";
 
 function App(): JSX.Element {
     return (
@@ -11,7 +13,9 @@ function App(): JSX.Element {
             <SafeAreaProvider>
                 <ToastProvider>
                     <OverlayProvider>
-                        <Heading>Hello world!</Heading>
+                        <NavigationContainer>
+                            <Stacks />
+                        </NavigationContainer>
                     </OverlayProvider>
                 </ToastProvider>
             </SafeAreaProvider>
