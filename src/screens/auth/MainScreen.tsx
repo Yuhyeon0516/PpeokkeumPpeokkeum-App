@@ -15,7 +15,7 @@ export default function MainScreen() {
     }
 
     function onPressRegisterButton() {
-        navigate("Register");
+        navigate("RegisterStack");
     }
 
     return (
