@@ -1,19 +1,21 @@
 import React from "react";
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
-import ZoneScreen from "./zone/ZoneScreen";
-import Tabs from "./Tabs";
-import {StackParams} from "../types/types";
+import ZoneScreen from "./ZoneScreen";
 import {NavigationProp, useNavigation} from "@react-navigation/native";
+import MainTabs from "./MainTabs";
+import {MainStackParams} from "../../types/types";
 
-const Stack = createNativeStackNavigator<StackParams>();
+const Stack = createNativeStackNavigator<MainStackParams>();
 
-export default function Stacks() {
-    const {navigate} = useNavigation<NavigationProp<StackParams>>();
+export default function MainStacks() {
+    const {navigate} = useNavigation<NavigationProp<MainStackParams>>();
 
     return (
         <Stack.Navigator screenOptions={{headerShown: false}}>
             <Stack.Screen name="Tabs">
-                {props => <Tabs onPress={() => navigate("Zone")} {...props} />}
+                {props => (
+                    <MainTabs onPress={() => navigate("Zone")} {...props} />
+                )}
             </Stack.Screen>
             <Stack.Screen
                 name="Zone"
