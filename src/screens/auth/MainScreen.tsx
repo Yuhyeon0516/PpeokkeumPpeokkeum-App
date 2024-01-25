@@ -4,6 +4,7 @@ import {NavigationProp, useNavigation} from "@react-navigation/native";
 import {AuthStackParams} from "../../types/types";
 import LottieView from "lottie-react-native";
 import {useWindowDimensions} from "react-native";
+import {COLORS} from "../../global/constant";
 
 export default function MainScreen() {
     const {navigate} = useNavigation<NavigationProp<AuthStackParams>>();
@@ -20,7 +21,7 @@ export default function MainScreen() {
     return (
         <VStack
             flex={1}
-            bg="whitesmoke"
+            bg={COLORS.bg}
             alignItems="center"
             justifyContent="center">
             <LottieView
@@ -30,7 +31,7 @@ export default function MainScreen() {
                 loop
             />
             <Heading
-                color="black"
+                color={COLORS.text}
                 size="2xl"
                 fontWeight="900"
                 top={(width * -0.7) / 6}>
@@ -39,18 +40,18 @@ export default function MainScreen() {
 
             <Button
                 size="xl"
-                bg="#8A7E74"
+                bg={COLORS.btn}
                 onPress={onPressLoginButton}
                 mb={20}
                 w={"35%"}>
-                <ButtonText>로그인</ButtonText>
+                <ButtonText color={COLORS.text}>로그인</ButtonText>
             </Button>
             <Button
                 size="xl"
-                bg="#8A7E74"
+                bg={COLORS.btn}
                 onPress={onPressRegisterButton}
                 w={"35%"}>
-                <ButtonText>회원가입</ButtonText>
+                <ButtonText color={COLORS.text}>회원가입</ButtonText>
             </Button>
         </VStack>
     );

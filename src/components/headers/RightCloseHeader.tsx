@@ -3,6 +3,7 @@ import {useNavigation} from "@react-navigation/native";
 import {X} from "lucide-react-native";
 import React from "react";
 import {Pressable} from "react-native";
+import {COLORS} from "../../global/constant";
 
 export default function RightCloseHeader() {
     const {goBack} = useNavigation();
@@ -25,7 +26,7 @@ export default function RightCloseHeader() {
                     position: "absolute",
                 }}
                 onPress={onPressX}>
-                <Icon as={X} color="black" size="xl" />
+                <Icon as={X} color={COLORS.text} size="xl" />
             </Pressable>
         </Box>
     );
