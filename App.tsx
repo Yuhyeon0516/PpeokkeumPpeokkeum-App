@@ -5,7 +5,7 @@ import {ToastProvider} from "@gluestack-ui/toast";
 import {OverlayProvider} from "@gluestack-ui/overlay";
 import {SafeAreaProvider} from "react-native-safe-area-context";
 import {NavigationContainer} from "@react-navigation/native";
-import Stacks from "./src/screens/Stacks";
+import HomeStacks from "./src/screens/HomeStacks";
 
 function App(): JSX.Element {
     return (
@@ -14,7 +14,7 @@ function App(): JSX.Element {
                 <ToastProvider>
                     <OverlayProvider>
                         <NavigationContainer>
-                            <Stacks />
+                            <HomeStacks />
                         </NavigationContainer>
                     </OverlayProvider>
                 </ToastProvider>
