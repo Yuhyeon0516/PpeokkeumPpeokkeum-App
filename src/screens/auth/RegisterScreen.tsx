@@ -1,10 +1,11 @@
-import {View, Text} from "react-native";
 import React from "react";
+import RightCloseHeader from "../../components/headers/RightCloseHeader";
+import {Box} from "@gluestack-ui/themed";
 
 export default function RegisterScreen() {
     return (
-        <View>
-            <Text>RegisterScreen</Text>
-        </View>
+        <Box flex={1}>
+            <RightCloseHeader />
+        </Box>
     );
 }
