@@ -1,7 +1,5 @@
 import {
     Box,
-    Button,
-    ButtonText,
     Heading,
     Input,
     InputField,
@@ -15,12 +13,13 @@ import RightCloseHeader from "../../components/headers/RightCloseHeader";
 import {Lock, UserRound} from "lucide-react-native";
 import {COLORS} from "../../global/constant";
 import GoogleButton from "../../components/auth/GoogleButton";
+import BigButton from "../../components/common/BigButton";
 
 export default function LoginScreen() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    function onPressLoginButton() {}
+    function onPressLogin() {}
 
     function onPressGoogleLogin() {}
 
@@ -80,16 +79,7 @@ export default function LoginScreen() {
                     </Input>
                 </VStack>
 
-                <Button
-                    size="xl"
-                    bg={COLORS.btn}
-                    onPress={onPressLoginButton}
-                    mt={30}
-                    w={"100%"}
-                    h={50}
-                    borderRadius={8}>
-                    <ButtonText color={COLORS.text}>로그인</ButtonText>
-                </Button>
+                <BigButton onPress={onPressLogin} text="로그인" />
 
                 <GoogleButton
                     onPress={onPressGoogleLogin}

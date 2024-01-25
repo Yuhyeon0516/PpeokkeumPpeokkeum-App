@@ -11,5 +11,10 @@ export type HomeStackParams = {
 export type AuthStackParams = {
     Main: undefined;
     Login: undefined;
+    RegisterStack: undefined;
+};
+
+export type RegisterStackParams = {
     Register: undefined;
+    Certification: undefined;
 };
