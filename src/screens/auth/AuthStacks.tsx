@@ -11,8 +11,8 @@ export default function AuthStacks() {
     return (
         <Stack.Navigator
             screenOptions={{headerShown: false}}
-            initialRouteName="Main">
-            <Stack.Screen name="Main" component={MainScreen} />
+            initialRouteName="AuthMain">
+            <Stack.Screen name="AuthMain" component={MainScreen} />
             <Stack.Screen
                 name="Login"
                 component={LoginScreen}

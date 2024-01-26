@@ -1,19 +1,11 @@
-import {
-    Box,
-    Heading,
-    Input,
-    InputField,
-    InputIcon,
-    InputSlot,
-    Text,
-    VStack,
-} from "@gluestack-ui/themed";
+import {Box, Heading} from "@gluestack-ui/themed";
 import React, {useState} from "react";
 import RightCloseHeader from "../../components/headers/RightCloseHeader";
-import {Lock, UserRound} from "lucide-react-native";
+import {Lock, Mail} from "lucide-react-native";
 import {COLORS} from "../../global/constant";
 import GoogleButton from "../../components/auth/GoogleButton";
 import BigButton from "../../components/common/BigButton";
+import TextInputCom from "../../components/common/TextInputCom";
 
 export default function LoginScreen() {
     const [email, setEmail] = useState("");
@@ -33,51 +25,23 @@ export default function LoginScreen() {
                     </Heading>
                 </Box>
 
-                <VStack space="xs" my={20}>
-                    <Text color={COLORS.text}>이메일</Text>
+                <TextInputCom
+                    value={email}
+                    onChangeText={setEmail}
+                    placeholder="이메일을 입력해주세요."
+                    title="이메일"
+                    keyboardType="email-address"
+                    icon={Mail}
+                />
 
-                    <Input size="lg" borderColor={COLORS.btn}>
-                        <InputSlot pl="$3">
-                            <InputIcon
-                                as={UserRound}
-                                color={email ? COLORS.text : COLORS.btn}
-                            />
-                        </InputSlot>
-                        <InputField
-                            cursorColor={COLORS.btn}
-                            placeholder="이메일을 입력해주세요."
-                            keyboardType="email-address"
-                            p={0}
-                            color={COLORS.text}
-                            autoCapitalize="none"
-                            value={email}
-                            onChangeText={setEmail}
-                        />
-                    </Input>
-                </VStack>
-
-                <VStack space="xs">
-                    <Text color={COLORS.text}>비밀번호</Text>
-
-                    <Input size="lg" borderColor={COLORS.btn}>
-                        <InputSlot pl="$3">
-                            <InputIcon
-                                as={Lock}
-                                color={password ? COLORS.text : COLORS.btn}
-                            />
-                        </InputSlot>
-                        <InputField
-                            cursorColor={COLORS.btn}
-                            placeholder="비밀번호를 입력해주세요."
-                            secureTextEntry
-                            p={0}
-                            color={COLORS.text}
-                            autoCapitalize="none"
-                            value={password}
-                            onChangeText={setPassword}
-                        />
-                    </Input>
-                </VStack>
+                <TextInputCom
+                    value={password}
+                    onChangeText={setPassword}
+                    placeholder="비밀번호를 입력해주세요."
+                    title="비밀번호"
+                    icon={Lock}
+                    secureTextEntry
+                />
 
                 <BigButton onPress={onPressLogin} text="로그인" />
 

@@ -4,17 +4,17 @@ export type MainStackParams = {
 };
 
 export type HomeStackParams = {
-    Auth: undefined;
-    Main: undefined;
+    Auth: AuthStackParams | undefined;
+    Main: MainStackParams | undefined;
 };
 
 export type AuthStackParams = {
-    Main: undefined;
+    AuthMain: undefined;
     Login: undefined;
-    RegisterStack: undefined;
+    RegisterStack: RegisterStackParams | undefined;
 };
 
 export type RegisterStackParams = {
-    Register: undefined;
-    Certification: undefined;
+    RegisterOne: undefined;
+    RegisterTwo: undefined;
 };
