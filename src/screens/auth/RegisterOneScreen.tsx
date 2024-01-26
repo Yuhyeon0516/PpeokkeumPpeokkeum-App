@@ -19,7 +19,10 @@ export default function RegisterOneScreen() {
         navigate("RegisterTwo");
     }
 
-    function onPressGoogleRegister() {}
+    function onPressGoogleRegister() {
+        //TODO: 구글 회원가입 구현
+        navigate("RegisterTwo");
+    }
 
     return (
         <Box flex={1} bg={COLORS.bg}>

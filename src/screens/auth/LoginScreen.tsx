@@ -6,14 +6,35 @@ import {COLORS} from "../../global/constant";
 import GoogleButton from "../../components/auth/GoogleButton";
 import BigButton from "../../components/common/BigButton";
 import TextInputCom from "../../components/common/TextInputCom";
+import {NavigationProp, useNavigation} from "@react-navigation/native";
+import {AuthStackParams, HomeStackParams} from "../../types/types";
 
 export default function LoginScreen() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const {navigate} = useNavigation<NavigationProp<AuthStackParams>>();
+    const navigation = useNavigation<NavigationProp<HomeStackParams>>();
 
-    function onPressLogin() {}
+    function goToMain() {
+        navigate("AuthMain");
+        setTimeout(() => {
+            navigation.navigate("Main");
+            navigation.reset({
+                index: 1,
+                routes: [{name: "Main"}],
+            });
+        }, 300);
+    }
 
-    function onPressGoogleLogin() {}
+    function onPressLogin() {
+        //TODO:Email Login 구현
+        goToMain();
+    }
+
+    function onPressGoogleLogin() {
+        //TODO:Google Login 구현
+        goToMain();
+    }
 
     return (
         <Box flex={1} bg={COLORS.bg}>
