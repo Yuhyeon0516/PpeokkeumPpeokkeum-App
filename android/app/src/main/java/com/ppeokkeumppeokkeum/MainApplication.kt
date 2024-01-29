@@ -1,4 +1,4 @@
-package com.ppeokkeumppeokkeum
+package com.insteadofme.ppeokkeumppeokkeum
 
 import android.app.Application
 import com.facebook.react.PackageList

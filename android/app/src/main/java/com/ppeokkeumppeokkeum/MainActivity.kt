@@ -1,4 +1,4 @@
-package com.ppeokkeumppeokkeum
+package com.insteadofme.ppeokkeumppeokkeum
 
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate
