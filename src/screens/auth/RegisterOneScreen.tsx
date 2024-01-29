@@ -8,14 +8,39 @@ import BigButton from "../../components/common/BigButton";
 import {NavigationProp, useNavigation} from "@react-navigation/native";
 import {RegisterStackParams} from "../../types/types";
 import TextInputCom from "../../components/common/TextInputCom";
+import {Alert} from "react-native";
+import {useSetRecoilState} from "recoil";
+import {registerData} from "../../global/recoil";
 
 export default function RegisterOneScreen() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [passwordConfirm, setPasswordConfirm] = useState("");
     const {navigate} = useNavigation<NavigationProp<RegisterStackParams>>();
+    const setRegisterData = useSetRecoilState(registerData);
 
     function onPressNext() {
+        if (password !== passwordConfirm) {
+            Alert.alert("패스워드가 일치하지 않습니다.");
+            return;
+        }
+
+        if (password.length >= 6) {
+            Alert.alert("비밀번호는 6글자 이상이어야 합니다.");
+            return;
+        }
+        const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+
+        if (!emailRegex.test(email)) {
+            Alert.alert("이메일 형식을 다시 확인해주세요.");
+            return;
+        }
+
+        setRegisterData({
+            email,
+            password,
+        });
+
         navigate("RegisterTwo");
     }
 
