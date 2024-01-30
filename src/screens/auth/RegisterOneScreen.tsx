@@ -11,6 +11,7 @@ import TextInputCom from "../../components/common/TextInputCom";
 import {Alert} from "react-native";
 import {useSetRecoilState} from "recoil";
 import {registerData} from "../../global/recoil";
+import {googleSignin} from "../../global/firebase";
 
 export default function RegisterOneScreen() {
     const [email, setEmail] = useState("");
@@ -20,6 +21,7 @@ export default function RegisterOneScreen() {
     const setRegisterData = useSetRecoilState(registerData);
 
     function onPressNext() {
+        //TODO: 닉네임 이름 업데이트
         if (password !== passwordConfirm) {
             Alert.alert("패스워드가 일치하지 않습니다.");
             return;
@@ -44,9 +46,12 @@ export default function RegisterOneScreen() {
         navigate("RegisterTwo");
     }
 
-    function onPressGoogleRegister() {
-        //TODO: 구글 회원가입 구현
-        navigate("RegisterTwo");
+    async function onPressGoogleRegister() {
+        //TODO: 닉네임 이름 업데이트
+        try {
+            const user = await googleSignin();
+            navigate("RegisterTwo", {uid: user.uid});
+        } catch (error: any) {}
     }
 
     return (

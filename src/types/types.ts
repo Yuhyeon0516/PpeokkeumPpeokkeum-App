@@ -16,5 +16,9 @@ export type AuthStackParams = {
 
 export type RegisterStackParams = {
     RegisterOne: undefined;
-    RegisterTwo: undefined;
+    RegisterTwo:
+        | {
+              uid: string;
+          }
+        | undefined;
 };
