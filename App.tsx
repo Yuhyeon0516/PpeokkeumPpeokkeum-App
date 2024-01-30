@@ -7,6 +7,14 @@ import {SafeAreaProvider} from "react-native-safe-area-context";
 import {NavigationContainer} from "@react-navigation/native";
 import HomeStacks from "./src/screens/HomeStacks";
 import {RecoilRoot} from "recoil";
+import {GoogleSignin} from "@react-native-google-signin/google-signin";
+
+GoogleSignin.configure({
+    webClientId:
+        "468147056398-fthfm5smjcv98s2lmoa8vhc7ikkdh7gr.apps.googleusercontent.com",
+    iosClientId:
+        "468147056398-7r1q1is8rd68rc8rtvuil6134j3hu1he.apps.googleusercontent.com",
+});
 
 function App(): JSX.Element {
     return (
